@@ -14,7 +14,7 @@ You must assign the company to exactly one of the following categories:
 
 If the company is a competitor or partner, mark them accordingly, but still complete all fields.
 
-Return your output in the following JSON format:
+Respond only in JSON — do not include markdown, backticks, or code fences. Return your output in the following JSON format:
 {
   "company": "<company name>",
   "summary": "<1–2 sentence plain-English summary of what this company does>",
@@ -52,4 +52,3 @@ Your JSON response must exactly follow this schema:
   "body": "<2–3 sentence casual email body text>"
 }
 """
-
