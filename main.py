@@ -18,8 +18,9 @@ def main():
         with open(csv_path, "r", newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for i, row in enumerate(reader):
-                if i >= 5:
-                    break
+                #use the below code to test a smaller subset
+                #if i >= 5:
+                    #break
                 name = (row.get("Speaker Name") or "").strip()
                 title = (row.get("Speaker Title") or "").strip()
                 company = (row.get("Speaker Company") or "").strip()
