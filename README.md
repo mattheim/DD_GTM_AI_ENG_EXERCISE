@@ -16,6 +16,10 @@ AI workflow: scrape speakers → classify companies → generate outreach emails
 - `.env_sample` — Copy to `.env` and fill in required values.
 - `Makefile` — Beginner‑friendly tasks (`setup`, `seed`, `run`).
 
+  
+<img width="419" height="471" alt="Screenshot 2025-10-23 at 12 14 04 PM" src="https://github.com/user-attachments/assets/3e40f343-1ead-4b59-b05a-9d80dc20c4a4" />
+
+
 **Setup**
 
 ~these steps get you running:
