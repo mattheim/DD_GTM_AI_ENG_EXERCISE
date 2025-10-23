@@ -4,6 +4,7 @@ import csv
 from pathlib import Path
 from typing import List, Dict, Optional
 import aiohttp
+from aiohttp.client_exceptions import ClientConnectorCertificateError
 from bs4 import BeautifulSoup
 
 
@@ -129,14 +130,19 @@ async def scrape_speakers(
     """
     owns_session = False
     if session is None:
-        if insecure:
-            connector = aiohttp.TCPConnector(ssl=False)
-        else:
-            connector = None
+        connector = aiohttp.TCPConnector(ssl=not insecure) if insecure else None
         session = aiohttp.ClientSession(connector=connector)
         owns_session = True
     try:
-        html = await fetch_html(url, session)
+        try:
+            html = await fetch_html(url, session)
+        except ClientConnectorCertificateError:
+            # Automatic fallback: if SSL verification fails, retry with ssl disabled
+            fallback = aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False))
+            try:
+                html = await fetch_html(url, fallback)
+            finally:
+                await fallback.close()
         return _parse_speakers_dc_week(html)
     finally:
         if owns_session:
@@ -221,4 +227,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
