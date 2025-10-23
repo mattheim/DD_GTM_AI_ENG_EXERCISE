@@ -17,7 +17,7 @@ AI workflow: scrape speakers → classify companies → generate outreach emails
 - `Makefile` — Beginner‑friendly tasks (`setup`, `seed`, `run`).
 
   
-<img width="419" height="471" alt="Screenshot 2025-10-23 at 12 14 04 PM" src="https://github.com/user-attachments/assets/3e40f343-1ead-4b59-b05a-9d80dc20c4a4" />
+<img width="419" height="468" alt="Screenshot 2025-10-23 at 12 15 15 PM" src="https://github.com/user-attachments/assets/8628eca1-e8e7-4eb8-82d8-393bf25c4a0d" />
 
 
 **Setup**
