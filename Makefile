@@ -27,7 +27,7 @@ install: venv
 
 .PHONY: seed
 seed: install
-	$(VENV_PY) seed.py
+	$(VENV_PY) seed.py $(SEED_ARGS)
 
 .PHONY: run
 run: install
